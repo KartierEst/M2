@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TP 1</string>
+    <string name="button">Quit</string>
+    <string name="textView">Hello World</string>
+</resources>

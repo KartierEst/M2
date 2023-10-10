@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Abder/Bureau/M2/TP1/app/src/main/res/layout/activity_hello_wolrd.xml" value="0.2" />
+        <entry key="..\:/Users/Abder/Desktop/M2_off/TP1/app/src/main/res/layout/activity_fortune.xml" value="0.2" />
+        <entry key="..\:/Users/Abder/Desktop/M2_off/TP1/app/src/main/res/layout/activity_hello_wolrd.xml" value="0.11302083333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="jbr-11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
