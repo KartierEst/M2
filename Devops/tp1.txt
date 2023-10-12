@@ -1,0 +1,141 @@
+TP 1 DEVOPS :
+
+basics :
+
+1. mkdir Hello
+2. git init
+3. git config --global user.name "KartierEst"
+   git config --global user.email abderbekhti77@gmail.Com
+4. git confid --list
+
+first commit :
+
+1. touch file1.txt
+2. git add file1.txt 
+
+first commit :
+
+1. git commit -m 'Ajout fichier premier commit'  
+
+basics 2 :
+
+1.echo "test" > file1.txt
+
+2. git diff => on voit une diff et les lignes ajoutés au fichier
+
+3. git status => on voit en rouge le fichier modifié non commit et non ajouté
+
+4. git add file1.txt => on voit en vert le fichier modifié car il a été ajouté
+
+5. git commit -m "message"
+
+6. git commit --amend => on changes le message, après CTRL X pour quitter, Yes pour valider, et entrer pour accepter le changement
+
+7. echo "encore" > file1.txt
+
+8. commit --amend
+
+basics 2 suite :
+
+1. git log => montre tout les commit
+
+2. git show => montre le dernier commit et les détails
+
+3. git checkout -- file1.txt => annule une modification dans le fichier
+
+4. git reset => reset un add
+
+basics et remote :
+
+1. cd ../
+
+2. git clone "https://github.com/saussact/git-training-repo.git"
+
+3. cd git-training-repo
+
+4. mkdir Bekhti => touch file_1.txt && touch file_2.txt => git add file_1.txt git add file_2.txt => git commit -m "test"
+
+basics et remote suite :
+
+gh1. git fetch => git log --graph --oneline --all --decorate => git config --global alias.lg "log --graph --oneline --all --decorate"
+git lg
+
+2. git pull => si warning modification tu dais git pull --rebase
+
+3. git push
+
+SSH KEY : ssh-keygen -t ed25519 -C "abderbekhti77@gmail.com" => cat .ssh/id_rsa.pub (trouvé le .pub) => copier coller dans github
+=> eval "$(ssh-agent -s)"
+
+fichier config dans ssh => 
+Host github.com
+	IdentityFile ~/.ssh/ed25519
+
+Branche :
+
+1. git branch lab2Bekhti
+
+2. git checkout lab2Bekhti
+
+3. echo "test" > file_2.txt => add file_2.txt => commit -m "test"
+   touch file_2.txt => git add file_3.txt => git commit -m "add"
+
+4. git checkout main
+
+Merging :
+
+1. git merge lab2-Bekhti => git log
+
+2. git status => ok
+
+merging suite :
+
+1. git checkout lab2-Bekhti
+
+2. echo "bool" > file2.txt => git add => commit
+
+3. checkout main
+
+4. pareil que 2 pour file1
+
+5. merge sur lab2-Bekhti : 1 file changed, 1 insertions et 1 deletions !
+
+6.  git branch -D lab2-Bekhti  
+
+merge conflicts :
+
+1. git checkout -b lab3-Bekhti => git status => good
+
+2. echo "test" > file_1.txt => commit pareil pour le 2*
+
+3. git checkout main
+
+4. echo "test" > file_1.txt et commit pour le main
+
+5. git merge lab3-Bekhti
+
+6. On supprime les éléments qui gène
+
+7. add file 
+
+8. status
+
+9. commit
+
+10. log
+
+Rebase :
+
+1. checkout sur la branche pour y aller et la créer en meme temps
+
+2. on change le fichier file_1 2 fois en faisant un commit 2 fois d'affilé
+
+3. on revient sur maine et crée un fichier
+
+4. on revient sur lab4
+
+5. et on rebase sur le main le lab4
+
+
+
+
