@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    compileSdk 21
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.TP2"
@@ -62,4 +62,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.8.22"
 }
