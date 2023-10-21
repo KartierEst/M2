@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="CoolGraphicsJar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/CoolGraphicsJar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

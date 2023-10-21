@@ -8,5 +8,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="RegularDuck" level="project" />
+    <orderEntry type="library" name="src" level="project" />
+    <orderEntry type="library" name="CoolGraphicsJar" level="project" />
   </component>
 </module>

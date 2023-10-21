@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="src">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/fr/uge/poo/ducks/Surprise.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/fr/uge/poo/ducks/RubberDuckFactory.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/fr/uge/poo/ducks/RegularDuckFactory.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/src" />
+    </SOURCES>
+  </library>
+</component>

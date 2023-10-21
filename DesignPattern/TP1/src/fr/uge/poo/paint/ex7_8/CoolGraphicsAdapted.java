@@ -29,7 +29,6 @@ public class CoolGraphicsAdapted implements Canva {
 
     @Override
     public void drawOval(int x, int y, int width, int height, ColorPlus color) {
-        System.out.println(color.toString());
         area.drawEllipse(x,y,width,height,color);
     }
 
