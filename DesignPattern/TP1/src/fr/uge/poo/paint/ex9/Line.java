@@ -4,7 +4,7 @@ import com.evilcorp.coolgraphics.CoolGraphics.*;
 
 public record Line(int x1, int y1, int x2, int y2) implements Shape {
     @Override
-    public void draw(Canva area, ColorPlus color) {
+    public void draw(Canva area, MyColor color) {
         area.drawLine(x1, y1, x2, y2,color);
     }
     @Override

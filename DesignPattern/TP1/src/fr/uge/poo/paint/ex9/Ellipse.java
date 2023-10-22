@@ -9,7 +9,7 @@ public class Ellipse extends RectEll {
     }
 
     @Override
-    public void draw(Canva area, CoolGraphics.ColorPlus color) {
+    public void draw(Canva area, MyColor color) {
         area.drawOval(x, y, width, height,color);
     }
 

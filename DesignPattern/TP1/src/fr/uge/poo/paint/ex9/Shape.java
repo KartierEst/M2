@@ -3,7 +3,7 @@ package fr.uge.poo.paint.ex9;
 import com.evilcorp.coolgraphics.CoolGraphics.*;
 
 public interface Shape {
-    void draw(Canva area, ColorPlus color);
+    void draw(Canva area, MyColor color);
     double distance(int x, int y);
     WindowSize minWindowSize();
     static double distancePythagore(int x1, int y1, int x2, int y2){

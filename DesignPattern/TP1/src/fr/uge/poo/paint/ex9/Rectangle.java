@@ -9,7 +9,7 @@ public class Rectangle extends RectEll { // pas de record pour extends abstract 
     }
 
     @Override
-    public void draw(Canva area, ColorPlus color) {
+    public void draw(Canva area, MyColor color) {
         area.drawRect(x, y, width, height,color);
     }
 }

@@ -14,22 +14,22 @@ public class CoolGraphicsAdapted implements Canva {
         area = new CoolGraphics("area",width,height);
     }
 
-    private ColorPlus colorToColorPlus(Color color){
+    private ColorPlus colorToColorPlus(MyColor color){
         return switch (color){
-            case Color.BLACK -> ColorPlus.BLACK;
-            case Color.WHITE -> ColorPlus.WHITE;
-            case Color.ORANGE -> ColorPlus.ORANGE;
+            case BLACK -> ColorPlus.BLACK;
+            case WHITE -> ColorPlus.WHITE;
+            case ORANGE -> ColorPlus.ORANGE;
             default -> throw new IllegalStateException("Unexpected value: " + color);
         };
     }
 
     @Override
-    public void drawLine(int x1, int y1, int x2, int y2, Color color) {
+    public void drawLine(int x1, int y1, int x2, int y2, MyColor color) {
         area.drawLine(x1, y1, x2, y2,colorToColorPlus(color));
     }
 
     @Override
-    public void drawRect(int x, int y, int width, int height, Color color) {
+    public void drawRect(int x, int y, int width, int height, MyColor color) {
         var colorPlus = colorToColorPlus(color);
         area.drawLine(x,y,width + x,y,colorPlus);
         area.drawLine(x+width,y,x+width,y+height,colorPlus);
@@ -38,7 +38,7 @@ public class CoolGraphicsAdapted implements Canva {
     }
 
     @Override
-    public void drawOval(int x, int y, int width, int height, Color color) {
+    public void drawOval(int x, int y, int width, int height, MyColor color) {
         area.drawEllipse(x,y,width,height,colorToColorPlus(color));
     }
 

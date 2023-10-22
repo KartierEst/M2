@@ -16,9 +16,9 @@ public class Drawing {
         area.clear();
         for(var shape : allShapes) {
             if (selected == shape) {
-                shape.draw(area, CoolGraphics.ColorPlus.ORANGE);
+                shape.draw(area, MyColor.ORANGE);
             } else {
-                shape.draw(area, CoolGraphics.ColorPlus.BLACK);
+                shape.draw(area, MyColor.BLACK);
             }
         }
     }
