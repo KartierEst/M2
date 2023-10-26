@@ -1,0 +1,41 @@
+Devops : docker
+
+1. installation 
+
+docker run hello-world => hello from docker + information sur docker
+
+2. first step
+
+a. Découverte :
+docker ps -a => affiche les dernières commandes docker (ici le hello world)
+
+docker ps => affiche juste les nouvelles demande d'ouverture d'un nouveau conteneur docker
+
+ps -edf => affiche 2 process dont un sur le terminal et un autre sur ps -edf
+
+docker ps -a après avoir quitter le conteneur avec #exit => toujours la commande helloworld mais rien de plus.
+
+b. Gestion des images docker
+
+les commandes lancer cherche sur une image mysql existe dans docker avec search, pull qui charge l'image mysql et du coup on la dans nos images
+docker
+
+Un conteneur représente l'execution d'une image donc par exemple quand on execute helloworld qui est lui une image donc un peu l'éxécutable.
+
+3. Deployer un Wordpress/Jouer avec les images
+
+Les informations importantes selon moi sont l'id, le conteneur, l'environnement, l'image et la commande.
+Je pense que cela est suffisant pour pouvoir avancer.
+
+On doit lancer mysql avant wordpress
+
+Pour vérifier si ils ont bien été lancé on fait docker ps -a
+
+Pour stoper wordpress on met stop wordpress mais pour la base mysql on peut pas stop mysql mais
+on doit regarder le nom du conteneur qui s'occupe de la bdd et l'arreter
+
+Pour docker ps -a ca affiche le nom et son status comme quoi il a été fermé il y a tant de minutes.
+Et dans le volume on a toujours le nom des volumes créer, qui n'ont pas été supprimer mais stoppé donc c'est normal.
+
+4. DockerFile
+

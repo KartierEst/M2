@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TP3</string>
     <string name="title_activity_flags">Flags</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

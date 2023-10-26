@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.unit.dp
 
 sealed class ICSFlag(val codeWord: String) {
@@ -96,11 +97,8 @@ object FoxtrotFlag: ICSFlag("foxtrot") {
             lineTo(size.width, size.height/2)
             close()
         }
-        Column(modifier) {
+        Column(modifier.background(Color.White)) {
             Box(Modifier.fillMaxWidth().weight(1f, fill=true).background(color=Color.Red, shape=losange))
-        }
-        Column(modifier) {
-            Box(Modifier.fillMaxWidth().weight(1f, fill=true).background(color=Color.White))
         }
     }
 }
@@ -141,7 +139,7 @@ object TangoFlag: ICSFlag("tango") {
     }
 }
 
-object WhiskeyFlag: ICSFlag("whiskey") {
+/*object WhiskeyFlag: ICSFlag("whiskey") {
     override val message = "J’ai besoin d’assistance médicale"
 
     @Composable
@@ -171,9 +169,9 @@ object WhiskeyFlag: ICSFlag("whiskey") {
         }
 
     }
-}
+}*/
 
-object ZuluFlag: ICSFlag("zulu") {
+/*object ZuluFlag: ICSFlag("zulu") {
     override val message = "J’ai besoin d’un remorqueur."
 
     fun createTriangle(xStart: Float, yStart: Float, xEnd:Float, yEnd: Float): GenericShape{
@@ -229,9 +227,9 @@ object ZuluFlag: ICSFlag("zulu") {
             Box(Modifier.fillMaxWidth().weight(1f, fill=true).background(color = Color.Blue, shape = toLeftTriangle))
         }
     }
-}
+}*/
 
-object OscarFlag: ICSFlag("oscar") {
+/*object OscarFlag: ICSFlag("oscar") {
     override val message = "Un homme à la mer."
 
     @Composable
@@ -252,12 +250,10 @@ object OscarFlag: ICSFlag("oscar") {
         }
         Column(modifier=modifier) {
             Box(Modifier.fillMaxWidth().weight(1f, fill=true).background(color = Color.Yellow, shape = toDownLeftTriangle))
-        }
-        Column(modifier=modifier) {
             Box(Modifier.fillMaxWidth().weight(1f, fill=true).background(color = Color.Red, shape = toUpRightTriangle))
         }
     }
-}
+}*/
 
 object NovemberFlag: ICSFlag("november") {
     override val message =
@@ -319,32 +315,27 @@ object EchoFlag: ICSFlag("echo") {
     }
 }
 
-object IndiaFlag: ICSFlag("india") {
+/*object IndiaFlag: ICSFlag("india") {
     override val message = "Ne me gênez pas, je manœuvre avec difficulté"
 
     @Composable
     override fun Flag(modifier: Modifier) {
-        Column(modifier) {
-            Box(
-                Modifier
-                    .fillMaxWidth()
-                    .weight(2f)
-                    .background(Color.Yellow))
-
-
-        }
         Column (modifier = Modifier.wrapContentSize(Alignment.Center)){
+            Modifier
+                .fillMaxWidth()
+                .weight(2f)
+                .background(Color.Yellow)
             Box(
                 Modifier
                     .clip(shape = CircleShape)
                     .background(Color.Black)
-                    .size(250.dp)
+                    .size(10.dp)
             )
         }
     }
-}
+}*/
 
-object YankeeFlag: ICSFlag("yankee") {
+/*object YankeeFlag: ICSFlag("yankee") {
     override val message = "Mon ancre chasse."
 
     @Composable
@@ -414,7 +405,7 @@ object YankeeFlag: ICSFlag("yankee") {
             }
         }
     }
-}
+}*/
 
 object UniformFlag : ICSFlag("uniform") {
     override val message = "Vous courez vers un danger."
@@ -489,7 +480,7 @@ object KiloFlag: ICSFlag("kilo") {
     }
 }
 
-object PapaFlag: ICSFlag("papa") {
+/*object PapaFlag: ICSFlag("papa") {
     override val message = "Au port : Toutes les personnes doivent se présenter à bord, le navire va prendre la mer."
 
     @Composable
@@ -518,7 +509,7 @@ object PapaFlag: ICSFlag("papa") {
             }
         }
     }
-}
+}*/
 
 object Sierra : ICSFlag("sierra") {
     override val message = "Je bats en arrière."
@@ -560,7 +551,7 @@ object Alpha : ICSFlag("alpha") {
 
     @Composable
     override fun Flag(modifier: Modifier) {
-        Row {
+        Row(modifier) {
             Box (modifier=Modifier.background(Color.White)
                 .weight(1f)
                 .fillMaxHeight())
@@ -586,7 +577,7 @@ object Bravo : ICSFlag("bravo") {
 
     @Composable
     override fun Flag(modifier: Modifier) {
-        Row {
+        Row(modifier) {
             Box (modifier=Modifier.background(Color.Red)
                 .weight(1f)
                 .fillMaxHeight())
