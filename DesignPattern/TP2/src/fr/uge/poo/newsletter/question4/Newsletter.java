@@ -82,7 +82,9 @@ public class Newsletter {
                 var mail = new EEMailer.Mail(user.email(),"[" + name + "] " + title,content);
                 mailer.send(mail);
             }
-            email.send(user.email(), "[" + name + "] " + title, content);
+            else {
+                email.send(user.email(), "[" + name + "] " + title, content);
+            }
         }
     }
 
