@@ -7,17 +7,32 @@ public class Main {
     public static void main(String[] args) {
         var mail = Arrays.asList(args).contains("-gmail");
         var email = mail ? new GmailerAdapted() : new EemailAdapted();
-
-
-        var potter = new Newsletter("Potter 4ever", List.of(User.Nationality.BRITISH), 17, email);
-        var java = new Newsletter("Java 4ever",List.of(User.Nationality.BRITISH, User.Nationality.FRENCH),21, email);
-        var me = new Newsletter("Why me!", (user -> user.email().contains("@univ-eiffel.fr") && (user.age()%2) == 0), email);
+        var potter = Newsletter.with().name("Potter 4ever").nationality(User.Nationality.BRITISH).age(18).mail(email).build();
+        var java = Newsletter.with().name("Java 4ever").nationalities(List.of(User.Nationality.BRITISH, User.Nationality.FRENCH))
+                .age(21).mail(email).build();
+        var me = Newsletter.with().name("Why me!").predicate((user -> user.email().contains("@univ-eiffel.fr") && (user.age()%2) == 0)).mail(email).build();
 
         var samy = new User("Samy", "samy@gmail.com",23, User.Nationality.FRENCH);
         var momo = new User("Momo", "momo@gmail.com",14, User.Nationality.BRITISH);
         var souley = new User("Souley", "souley@univ-eiffel.fr",20, User.Nationality.BRITISH);
         var jylian = new User("Jylian", "jylian@univ-eiffel.fr",18, User.Nationality.SPANISH);
         var jojo = new User("Jojo", "jojo@gmail.fr",20, User.Nationality.FRENCH);
+
+        potter.register(potter.WELCOME_MAIL);
+        potter.register(potter.ERROR_SUBSCRIBE);
+        potter.register(potter.MOST_THAN_100_USERS);
+        potter.register(potter.STUDENT_MAIL);
+
+        java.register(java.WELCOME_MAIL);
+        java.register(java.ERROR_SUBSCRIBE);
+        java.register(java.MOST_THAN_100_USERS);
+        java.register(java.STUDENT_MAIL);
+
+        me.register(me.WELCOME_MAIL);
+        me.register(me.ERROR_SUBSCRIBE);
+        me.register(me.MOST_THAN_100_USERS);
+        me.register(me.STUDENT_MAIL);
+
 
         potter.subscribe(samy);
         potter.subscribe(momo);
@@ -37,9 +52,9 @@ public class Main {
         me.subscribe(jylian);
         me.subscribe(jojo);
 
-        potter.sendMessage("test","test encore");
-        java.sendMessage("test","test encore");
-        me.sendMessage("test","test encore");
+        potter.sendMessage("potter","test potter");
+        java.sendMessage("java","test java");
+        me.sendMessage("me","test me");
 
         potter.sendMessageBulk("test","test encore");
         java.sendMessageBulk("test","test encore");

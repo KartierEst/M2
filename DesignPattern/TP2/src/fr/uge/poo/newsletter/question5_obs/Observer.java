@@ -2,11 +2,10 @@ package fr.uge.poo.newsletter.question5_obs;
 
 public interface Observer {
 
-    default void sendWelcomeMail(NewsletterInfo info, String userMail) {}
+    default void subscribe(User user){}
 
-    default void sendMoreThan100(NewsletterInfo info, String content){}
+    default void unsubscribe(User user){}
 
-    default void sendToUniv(NewsletterInfo info){}
+    default void sendMessage(User user){}
 
-    default void sendErrorSubscribe(NewsletterInfo info, String userName){}
 }

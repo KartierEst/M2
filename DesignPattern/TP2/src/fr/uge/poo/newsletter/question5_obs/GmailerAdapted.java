@@ -13,10 +13,4 @@ public class GmailerAdapted implements EMail {
         mailer.send(recipient,mail);
     }
 
-    @Override
-    public void sendBulk(List<String> emails, String subject, String content){
-        var mail = new GMailer.Mail(subject, content);
-        mailer.sendBulk(emails, mail);
-    }
-
 }

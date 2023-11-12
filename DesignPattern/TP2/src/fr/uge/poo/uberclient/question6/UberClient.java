@@ -24,23 +24,20 @@ public class UberClient {
     }
 
     private UberClientInfo infos(){
-        return new UberClientInfo(firstName,lastName);
+        return new UberClientInfo(firstName,lastName, emails);
     }
 
     double getScore(ScoreStrategy strategy){
         return strategy.computeScore(grades);
     }
 
-    private UberClientInfo infosWithAverage(int limit, boolean email){
-        var score = limit == 0 ? getScore(new AverageStrategy()) : getScore(new AverageLimitStrategy(limit));
-        var mails = emails.stream().map(x -> { var tab = x.split("@");
-            return  tab[0].charAt(0) + "*@" + tab[1].charAt(0) + "*"; }
-        );
-        return new UberClientInfo(firstName,lastName,score,email ? mails.toList() : null);
+
+    public String export(UberClientFormatter formatter){
+        return formatter.format(infos());
     }
 
-    public String export(UberClientFormatter formatter, boolean average, boolean email, int limit) {
-        return average ? formatter.format(infosWithAverage(limit,email),limit) : formatter.simpleFormat(infos());
+    public String export(UberClientFormatter formatter, ScoreStrategy strategy){
+        return formatter.format(infos(), getScore(strategy));
     }
 
     public static UberClientBuilder with(){
@@ -51,9 +48,9 @@ public class UberClient {
         private String firstName;
         private String lastName;
         private long uid;
-        private List<Integer> grades = new ArrayList<>();
-        private List<String> emails = new ArrayList<>();
-        private List<String> phoneNumbers = new ArrayList<>();
+        private final List<Integer> grades = new ArrayList<>();
+        private final List<String> emails = new ArrayList<>();
+        private final List<String> phoneNumbers = new ArrayList<>();
 
         public UberClientBuilder firstName(String firstName) {
             this.firstName = Objects.requireNonNull(firstName);
@@ -108,10 +105,10 @@ public class UberClient {
             if (firstName == null || lastName == null || uid < 0) {
                 throw new IllegalStateException("firstname or lastname or uid are mandatory");
             }
-            if (grades.size() == 0) {
+            if (grades.isEmpty()) {
                 throw new IllegalArgumentException("A client must have at least one grade");
             }
-            if (emails.size() == 0 && phoneNumbers.size() == 0) {
+            if (emails.isEmpty() && phoneNumbers.isEmpty()) {
                 throw new IllegalArgumentException("A client must have at least an email or a phoneNumber");
             }
             return new UberClient(this);
@@ -134,13 +131,16 @@ public class UberClient {
 
         //UberClient test = UberClient.with().build();
 
-        var htmlformat = new HTMLFormat();
 
-        System.out.println(arnaud.export(htmlformat,true,false,0));
-        System.out.println(arnaud.export(htmlformat,false,false, 0));
-        System.out.println(arnaud.export(htmlformat,true,false,7));
-        System.out.println(arnaud.export(htmlformat,true,true,0));
-        System.out.println(arnaud.export(htmlformat,true,true,5));
+        System.out.println(arnaud.export(new UberClientFormatter.HTMLSimple()));
+        System.out.println(arnaud.export(new UberClientFormatter.HTMLWithAverage(), new ScoreStrategy.AverageStrategy()));
+        System.out.println(arnaud.export(new UberClientFormatter.HTMLWithAverage(), new ScoreStrategy.AverageLimitStrategy(7)));
+        System.out.println(arnaud.export(new UberClientFormatter.HTMLWithEmails(), new ScoreStrategy.AverageStrategy()));
+        System.out.println(arnaud.export(new UberClientFormatter.HTMLWithEmails(), new ScoreStrategy.AverageLimitStrategy(5)));
+
+
+
+        //arnaud.format(Formatter.HTMLWithEmails, new ScoreStrategy.AverageLimitStrategy(7));
     }
 
 }

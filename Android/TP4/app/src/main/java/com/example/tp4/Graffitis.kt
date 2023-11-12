@@ -94,13 +94,13 @@ fun ColorPalette(selectedColor: Color?, colorList: List<Color>, onClickedColor: 
 }
 
 @Composable
-fun SketchViewer(sketch: MutableState<Sketch>){
+fun SketchViewer(sketch: Sketch){
     //val line1 = Line(mutableListOf(Pair(0.5F,0.0F),Pair(0.5F,0.5F)), Color.Black, System.currentTimeMillis())
     //val line2 = Line(mutableListOf(Pair(0.0F,0.0F),Pair(1.0F,1.0F)), Color.Black, System.currentTimeMillis())
     //val sketch = Sketch(listOf(line1,line2))
-    Log.e("test", "test")
+    Log.e("test", "zugulu")
     Canvas(modifier = Modifier.fillMaxSize()) {
-        for(line in sketch.value.lines){
+        for(line in sketch.lines){
             for(i in 0 until (line.points.size-1) step 2){
                 val actualLine = line.points[i]
                 val nextLine = line.points[i+1]
@@ -151,7 +151,10 @@ fun DrawEventer(onDrawEvent: (Pair<Float, Float>, Boolean) -> Unit, modifier: Mo
 
 @Composable
 fun SketchViewerWithEventer(sketch: MutableState<Sketch>, selectedColor: Color){
-    val allLine = Line(mutableListOf(), selectedColor, 0)
+    var allLine = Line(mutableListOf(), selectedColor, 0)
+    val tmpSketch = Sketch(mutableListOf(allLine))
+    // modifier le sketch directement et pas l'interieur du contenu
+    // pareil pour les line
     val onDrawEvent: (Pair<Float, Float>, Boolean) -> Unit = { line, onGoing ->
         if (onGoing) {
             Log.e("go", "go")
@@ -159,14 +162,15 @@ fun SketchViewerWithEventer(sketch: MutableState<Sketch>, selectedColor: Color){
         }
         else {
             Log.e("add", "add")
-            sketch.value.lines.add(allLine)
-            allLine.points.clear()
+            tmpSketch.lines.add(allLine)
+            sketch.value = tmpSketch
+            allLine = Line(mutableListOf(), selectedColor, 0)
         }
     }
     
     Box(modifier = Modifier.fillMaxSize()){
         DrawEventer(onDrawEvent, Modifier.fillMaxSize())
-        SketchViewer(sketch = sketch)
+        SketchViewer(sketch = sketch.value)
     }
 }
 
@@ -175,15 +179,23 @@ fun LocalSketchManager(){
     val sketch = remember { mutableStateOf(Sketch(mutableListOf())) }
     var selectedColor by remember { mutableStateOf(Color.Black) }
     val onClickedColor = { color:Color -> selectedColor = color }
-    Column(modifier = Modifier.fillMaxSize().background(Color.Red)) {
-        Box(modifier = Modifier.fillMaxWidth().weight(0.1f).background(Color.Cyan)) {
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .background(Color.Red)) {
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .weight(0.1f)
+            .background(Color.Cyan)) {
             ColorPalette(
                 selectedColor,
                 listOf(Color.Black, Color.Blue, Color.Cyan, Color.Magenta, Color.Green),
                 onClickedColor
             )
         }
-        Box(modifier = Modifier.fillMaxWidth().weight(1f).background(Color.Green)) {
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .weight(1f)
+            .background(Color.Green)) {
             SketchViewerWithEventer(sketch, selectedColor)
         }
     }

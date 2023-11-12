@@ -16,12 +16,6 @@ public class EemailAdapted implements EMail {
         var mail = new EEMailer.Mail(recipient, subject, content);
         mailer.send(mail);
     }
-
-    @Override
-    public void sendBulk(List<String> emails, String subject, String content){
-        var mail = new GMailer.Mail(subject, content);
-        System.out.println("Sending mail to "+emails.stream().collect(Collectors.joining(", ","[ "," ]"))+" with title \""+subject+"\" and content \""+content+"\"");
-    }
 }
 
 
