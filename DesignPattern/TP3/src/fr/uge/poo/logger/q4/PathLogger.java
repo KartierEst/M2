@@ -17,7 +17,7 @@ public class PathLogger implements Closeable, MyLogger {
         this.path = path;
     }
 
-    public void log(SystemLogger.Level level, String msg) {
+    public void log(Level level, String msg) {
         try {
             if(bufferedWriter == null){
                 bufferedWriter = Files.newBufferedWriter(path,
@@ -26,19 +26,13 @@ public class PathLogger implements Closeable, MyLogger {
                         StandardOpenOption.APPEND);
             }
 
-            bufferedWriter.write(level + " : " + msg + "\n");
+            bufferedWriter.write(level + " : " + msg);
             bufferedWriter.flush();
-
+            bufferedWriter.newLine();
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
     }
-
-    @Override
-    public boolean filter(Predicate<SystemLogger.Level> predicate, SystemLogger.Level level) {
-        return false;
-    }
-
 
     @Override
     public void close() throws IOException {

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="messagePrinter" class="fr.uge.jee.printers.ex1.SimpleMessagePrinter"/>
+    <bean id="printer" class="fr.uge.jee.printers.ex2.FrenchMessagePrinter"/>
+    <bean id="frenchMessagePrinter" class="fr.uge.jee.printers.ex2.FrenchMessagePrinter"/>
+    <bean id="messagePrinter2" class="fr.uge.jee.printers.ex2.SimpleMessagePrinter"/>
+
+
+    <bean id="customizableMessagePrinter" class="fr.uge.jee.printers.ex2.CustomizableMessagePrinter">
+        <constructor-arg value="Hello from the config.xml"/>
+    </bean>
+
+    <!--<bean id="countMessagePrinter" class="fr.uge.jee.printers.ex3.CountMessagePrinter" scope="prototype"/>-->
+    <bean id="messagePrinter3" class="fr.uge.jee.printers.ex3.SimpleMessagePrinter" lazy-init="true"/>
+    <bean id="slowMessagePrinter" class="fr.uge.jee.printers.ex3.SlowConstructionMessagePrinter" lazy-init="true"/>
+</beans>

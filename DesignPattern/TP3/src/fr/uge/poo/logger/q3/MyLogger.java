@@ -3,8 +3,12 @@ package fr.uge.poo.logger.q3;
 import java.util.function.Predicate;
 
 public interface MyLogger {
-    void log(SystemLogger.Level level, String msg);
-    default boolean filter(Predicate<SystemLogger.Level> predicate, SystemLogger.Level level){
+
+    public enum Level {
+        ERROR, WARNING, INFO
+    }
+    void log(Level level, String msg);
+    default boolean filter(Predicate<Level> predicate, Level level){
         return predicate.test(level);
     }
 }

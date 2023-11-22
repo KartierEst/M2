@@ -21,6 +21,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
@@ -35,6 +36,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.tp4.ui.theme.Tp4Theme
+import fr.uge.graffiti.communicateWithWebsocket
 
 class Graffitis : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,19 +97,17 @@ fun ColorPalette(selectedColor: Color?, colorList: List<Color>, onClickedColor: 
 
 @Composable
 fun SketchViewer(sketch: Sketch){
-    //val line1 = Line(mutableListOf(Pair(0.5F,0.0F),Pair(0.5F,0.5F)), Color.Black, System.currentTimeMillis())
-    //val line2 = Line(mutableListOf(Pair(0.0F,0.0F),Pair(1.0F,1.0F)), Color.Black, System.currentTimeMillis())
-    //val sketch = Sketch(listOf(line1,line2))
-    Log.e("test", "zugulu")
-    Canvas(modifier = Modifier.fillMaxSize()) {
+    Canvas(modifier = Modifier
+        .fillMaxSize()
+        .background(Color.White)) {
         for(line in sketch.lines){
-            for(i in 0 until (line.points.size-1) step 2){
+            for(i in 0 until (line.points.size-1)){
                 val actualLine = line.points[i]
                 val nextLine = line.points[i+1]
                 drawLine(line.color,
                     start = Offset(actualLine.first * size.width, actualLine.second * size.height),
                     end = Offset(nextLine.first * size.width, nextLine.second * size.height),
-                    strokeWidth = 4f
+                    strokeWidth = 10f
                 )
             }
         }
@@ -128,13 +128,15 @@ fun DrawEventer(onDrawEvent: (Pair<Float, Float>, Boolean) -> Unit, modifier: Mo
                         when (event.type) {
                             PointerEventType.Press -> {
                                 val pair = event.changes.first().position
-                                val tmp = Pair(pair.x, pair.y)
+                                // position donne la position direct du tel alors que Canva prend des points plus petit
+                                // qu'on multiplie après par la taille donc ici on divise
+                                val tmp = Pair(pair.x / size.width, pair.y / size.height)
                                 onDrawEvent(tmp, true)
                             }
 
                             PointerEventType.Move -> {
-                                val pair = event.changes.last()
-                                val tmp = Pair(pair.position.x, pair.position.y);
+                                val pair = event.changes.last().position
+                                val tmp = Pair(pair.x / size.width, pair.y / size.height)
                                 onDrawEvent(tmp, true)
                             }
 
@@ -150,24 +152,21 @@ fun DrawEventer(onDrawEvent: (Pair<Float, Float>, Boolean) -> Unit, modifier: Mo
 }
 
 @Composable
-fun SketchViewerWithEventer(sketch: MutableState<Sketch>, selectedColor: Color){
-    var allLine = Line(mutableListOf(), selectedColor, 0)
-    val tmpSketch = Sketch(mutableListOf(allLine))
-    // modifier le sketch directement et pas l'interieur du contenu
-    // pareil pour les line
+fun SketchViewerWithEventer(sketch: MutableState<Sketch>, selectedColor:MutableState<Color>){
+    var allLine = Line(mutableListOf(), selectedColor.value, 0)
+    val tmpSketch = Sketch(sketch.value.lines)
     val onDrawEvent: (Pair<Float, Float>, Boolean) -> Unit = { line, onGoing ->
+        allLine.color = selectedColor.value
         if (onGoing) {
-            Log.e("go", "go")
             allLine.points.add(line)
         }
         else {
-            Log.e("add", "add")
             tmpSketch.lines.add(allLine)
-            sketch.value = tmpSketch
-            allLine = Line(mutableListOf(), selectedColor, 0)
+            sketch.value = Sketch(tmpSketch.lines)
+            // ici que la couleur change vraiment
+            allLine = Line(mutableListOf(), selectedColor.value, 0)
         }
     }
-    
     Box(modifier = Modifier.fillMaxSize()){
         DrawEventer(onDrawEvent, Modifier.fillMaxSize())
         SketchViewer(sketch = sketch.value)
@@ -177,28 +176,33 @@ fun SketchViewerWithEventer(sketch: MutableState<Sketch>, selectedColor: Color){
 @Composable
 fun LocalSketchManager(){
     val sketch = remember { mutableStateOf(Sketch(mutableListOf())) }
-    var selectedColor by remember { mutableStateOf(Color.Black) }
-    val onClickedColor = { color:Color -> selectedColor = color }
+    val selectedColor = remember { mutableStateOf(Color.Blue) }
+    val onClickedColor = { color:Color -> selectedColor.value = color }
     Column(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.Red)) {
+        .fillMaxSize()) {
         Box(modifier = Modifier
             .fillMaxWidth()
             .weight(0.1f)
-            .background(Color.Cyan)) {
+            .background(Color.White)) {
             ColorPalette(
-                selectedColor,
+                selectedColor.value,
                 listOf(Color.Black, Color.Blue, Color.Cyan, Color.Magenta, Color.Green),
                 onClickedColor
             )
         }
         Box(modifier = Modifier
             .fillMaxWidth()
-            .weight(1f)
-            .background(Color.Green)) {
+            .weight(1f)) {
             SketchViewerWithEventer(sketch, selectedColor)
         }
     }
+}
+
+@Composable
+fun sendSketchToSocket(sketch: Sketch){
+    var test = communicateWithWebsocket("ws://server/ws/graffitiserver")
+    test.first.tryEmit();
+    test.second.collect();
 }
 
 @Preview(showBackground = true)
