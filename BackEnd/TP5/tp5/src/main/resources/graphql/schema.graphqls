@@ -1,0 +1,14 @@
+type Query {
+    getPokemon(id: ID) : Pokemon
+    pokemons: [Pokemon]
+}
+
+type Pokemon {
+    id: ID
+    name: String
+    sprites: Sprites
+}
+
+type Sprites {
+    front_default: String
+}

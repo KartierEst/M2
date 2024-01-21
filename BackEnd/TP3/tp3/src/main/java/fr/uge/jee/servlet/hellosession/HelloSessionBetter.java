@@ -28,34 +28,16 @@ public class HelloSessionBetter extends HttpServlet {
         var session = request.getSession(true);
         PrintWriter writer = response.getWriter();
 
-        UUID token = null;
-        int count = 1;
-
-        // si on met une SESSIONID un peu random ca va créer une nouvelle sessionID valide
-
-        if (request.getCookies() != null) {
-            if (Arrays.stream(request.getCookies()).map(Cookie::getName).anyMatch(x -> x.contains("TOKEN"))) {
-                var value = Arrays.stream(request.getCookies()).filter(x -> x.getName().equals("TOKEN")).map(Cookie::getValue).findFirst();
-                if (value.isPresent()) {
-                    token = UUID.fromString(value.get());
-                    synchronized (lock) {
-                        count = (int) session.getAttribute(token.toString());
-                        count++;
-                    }
-                }
-            } else {
-                token = UUID.randomUUID();
-                response.addCookie(new Cookie("TOKEN", token.toString()));
-            }
-            if(token != null) {
-                session.setAttribute(token.toString(), count);
-            }
-        } else {
-            token = UUID.randomUUID();
-            session.setAttribute(token.toString(), count);
-            response.addCookie(new Cookie("TOKEN", token.toString()));
+        if(session.getAttribute(session.getId()) == null){
+            session.setAttribute(session.getId(),1);
         }
-        writer.println("<!DOCTYPE html><html><h1>Bonjour " + (token == null ? 1 : session.getAttribute(token.toString())) +
+        else{
+            var nb = (int) session.getAttribute(session.getId());
+            session.setAttribute(session.getId(),nb + 1);
+        }
+
+
+        writer.println("<!DOCTYPE html><html><h1>Bonjour " + session.getAttribute(session.getId()) +
                 "-eme fois</h1></html>");
         writer.flush();
     }

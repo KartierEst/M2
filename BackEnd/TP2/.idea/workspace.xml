@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1495590e-0f37-43c3-8cab-48082d4b861f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Android/TP4/app/src/main/java/com/example/tp4/SketchChannel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP4/tp4/src/main/java/fr/uge/jee/springmvc/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP4/tp4/src/main/java/fr/uge/jee/springmvc/hello/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP4/tp4/src/main/java/fr/uge/jee/springmvc/rectangle/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP4/tp4/src/main/java/fr/uge/jee/springmvc/rectangle/RectangleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP4/tp4/src/main/java/fr/uge/jee/springmvc/rectanglesession/History.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP4/tp4/src/main/java/fr/uge/jee/springmvc/rectanglesession/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP4/tp4/src/main/java/fr/uge/jee/springmvc/rectanglesession/RectangleControllerSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP4/tp4/src/main/resources/templates/hello.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP4/tp4/src/main/resources/templates/rectangle-result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP4/tp4/src/main/resources/templates/rectangle-session.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP4/tp4/src/main/resources/templates/rectangle.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP5/tp5/src/main/java/fr/uge/jee/springmvc/pokematch/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP5/tp5/src/main/java/fr/uge/jee/springmvc/pokematch/Pokemon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP5/tp5/src/main/java/fr/uge/jee/springmvc/pokematch/Pokemons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP5/tp5/src/main/java/fr/uge/jee/springmvc/pokematch/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP5/tp5/src/main/java/fr/uge/jee/springmvc/pokematch/StudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP5/tp5/src/main/java/fr/uge/jee/springmvc/pokematch/TopHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP5/tp5/src/main/java/fr/uge/jee/springmvc/reststudents/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP5/tp5/src/main/java/fr/uge/jee/springmvc/reststudents/HelloRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP5/tp5/src/main/java/fr/uge/jee/springmvc/reststudents/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TP5/tp5/src/main/resources/templates/form-pokemon.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DesignPattern/TP3/src/fr/uge/poo/cmdline/ex0/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DesignPattern/TP3/src/fr/uge/poo/cmdline/ex0/CmdLineParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DesignPattern/TP3/src/fr/uge/poo/cmdline/ex1/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DesignPattern/TP3/src/fr/uge/poo/cmdline/ex1/CmdLineParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DesignPattern/TP3/src/fr/uge/poo/cmdline/ex2/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DesignPattern/TP3/src/fr/uge/poo/cmdline/ex2/CmdLineParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DesignPattern/TP3/src/fr/uge/poo/composite/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DesignPattern/TP3/src/fr/uge/poo/composite/FileSystemEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DesignPattern/TP3/src/fr/uge/poo/composite/Visitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Android/TP4/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Android/TP4/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Android/TP4/app/src/main/java/WebsocketManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Android/TP4/app/src/main/java/WebsocketManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Android/TP4/app/src/main/java/com/example/tp4/Graffitis.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Android/TP4/app/src/main/java/com/example/tp4/Graffitis.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP3/tp3/src/main/java/fr/uge/jee/servlet/hellosession/HelloSessionBetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TP3/tp3/src/main/java/fr/uge/jee/servlet/hellosession/HelloSessionBetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP3/tp3/src/main/java/fr/uge/jee/servlet/hellosession/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TP3/tp3/src/main/java/fr/uge/jee/servlet/hellosession/Token.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DesignPattern/TP2.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DesignPattern/TP3/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DesignPattern/TP3/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DesignPattern/TP3/src/arbre_expr_ex2" beforeDir="false" afterPath="$PROJECT_DIR$/../../DesignPattern/TP3/src/arbre_expr_ex2.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="AnnotationType" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2YJ3Z422EXsdXrMti3isRPuskzX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Abder/Desktop/M2/BackEnd/TP2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="fr.uge.jee.aop.students" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.uge.jee.aop.students.Application" />
+      <module name="tp2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.uge.jee.aop.students.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1495590e-0f37-43c3-8cab-48082d4b861f" name="Changes" comment="" />
+      <created>1700229906442</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700229906442</updated>
+      <workItem from="1700229907447" duration="9164000" />
+      <workItem from="1700638454151" duration="663000" />
+      <workItem from="1701243945871" duration="16000" />
+      <workItem from="1701860571462" duration="157000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

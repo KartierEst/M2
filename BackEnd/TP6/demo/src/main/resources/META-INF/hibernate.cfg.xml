@@ -1,0 +1,11 @@
+<hibernate-mapping>
+    <class name = "fr.uge.jee.hibernate.employees.Employee" table = "employees">
+        <meta attribute = "class-description">
+            This class contains the details of the students
+        </meta>
+        <id name = "id" type = "int" column = "id"> <generator class="native"/></id>
+        <property name = "firstName" column = "firstname" type = "string"/>
+        <property name = "lastName" column = "lastname" type = "string"/>
+        <property name = "salary" column = "salary" type = "int"/>
+    </class>
+</hibernate-mapping>

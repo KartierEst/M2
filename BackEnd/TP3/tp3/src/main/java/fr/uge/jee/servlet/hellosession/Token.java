@@ -5,6 +5,7 @@ import jakarta.servlet.http.Cookie;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class Token {
 
@@ -12,6 +13,7 @@ public class Token {
     private final HashMap<UUID, Integer> hashMap = new HashMap<>();
 
     public void addToken(UUID token){
+        hashMap.values().stream().map(x -> x.toString()).collect(Collectors.joining(","));
         synchronized (lock) {
             hashMap.merge(token, 1, Integer::sum);
         }

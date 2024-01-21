@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rectangle</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form th:action="@{/rectangle-session}" th:object="${rectangle}" method="post">
+        <h2>Rectangle area calculator</h2>
+        <p th:text="${error}"></p>
+        <div><label for="h">Height:</label>
+            <input id="h" type="text"  th:field="*{height}"></div>
+
+        <div><label for="w">Width:</label>
+            <input type="text" id="w" th:field="*{width}"></div>
+        <div><button type="submit">Compute</button></div>
+
+        <h2>History</h2>
+        <ul>
+            <li th:each="rect : ${history.getList()}" th:text="${rect}"></li>
+        </ul>
+    </form>
+</body>
+</html>

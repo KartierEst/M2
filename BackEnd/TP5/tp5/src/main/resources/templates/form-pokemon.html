@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pokemon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form action="#" th:action="@{/form-pokemon}" method="post" th:object="${student}">
+        <h2>Enter your name and firstname</h2>
+        <div>
+            <label for="h">Name:</label>
+            <input id="h" type="text" th:field="*{name}">
+            <span  th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Invalid name</span>
+        </div>
+
+        <div><label for="w">FirstName:</label>
+            <input type="text" id="w" th:field="*{firstName}">
+            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Invalid width</span></div>
+        <div>
+            <button type="submit">Compute</button>
+        </div>
+        <div th:if="${imagePoke}">
+            <img th:src="${'data:image/png;charset=utf-8;base64,' + imagePoke}">
+        </div>
+    </form>
+    <p th:if="${pokemon != null}" th:text="'Your pokemon is ' + ${pokemon}"></p>
+    <h2>History</h2>
+    <ul>
+        <li th:each="poke : ${top10}" th:text="${poke}"></li>
+    </ul>
+</body>
+</html>
